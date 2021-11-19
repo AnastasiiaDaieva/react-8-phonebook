@@ -1,8 +1,8 @@
 {
-  "name": "react-3-phonebook",
+  "name": "react-4-hooks-phonebook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://AnastasiiaDaieva.github.io/react-3-phonebook",
+  "homepage": "https://AnastasiiaDaieva.github.io/react-4-hooks-phonebook",
   "dependencies": {
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
