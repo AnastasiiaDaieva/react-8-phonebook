@@ -2,20 +2,22 @@ import React from 'react';
 import s from 'components/Contacts/ContactsItem.module.css';
 import PropTypes from 'prop-types';
 
-const ContactsItem = ({ id, name, number, deleteFunc }) => (
-  <li key={id} className={s.ContactsItem}>
-    <span className={s.ContactsItem__text}>
-      {name}: {number}
-    </span>
-    <button
-      type="button"
-      className={s.ContactsItem__button}
-      onClick={() => deleteFunc(id)}
-    >
-      Delete
-    </button>
-  </li>
-);
+function ContactsItem({ id, name, number, deleteFunc }) {
+  return (
+    <li key={id} className={s.ContactsItem}>
+      <span className={s.ContactsItem__text}>
+        {name}: {number}
+      </span>
+      <button
+        type="button"
+        className={s.ContactsItem__button}
+        onClick={() => deleteFunc(id)}
+      >
+        Delete
+      </button>
+    </li>
+  );
+}
 
 ContactsItem.propTypes = {
   id: PropTypes.string,
