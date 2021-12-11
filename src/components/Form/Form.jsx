@@ -2,17 +2,27 @@ import React, { useState } from 'react';
 import { Section } from 'components/Section/Section';
 import s from 'components/Form/Form.module.css';
 import PropTypes from 'prop-types';
+import { connect, useSelector } from 'react-redux';
+import { addContact } from 'store/actions';
 
 function Form({ onSubmit }) {
+  const contacts = useSelector(state => state.contacts.items);
+  console.log(contacts);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    onSubmit({ name, number });
-    reset();
-  };
+  const findMap = contacts.find(contact => contact.name === name);
 
+  const handleSubmit = e => {
+    if (findMap) {
+      alert(`${name} is already in contacts!`);
+      return;
+    } else {
+      e.preventDefault();
+      onSubmit({ name, number });
+      reset();
+    }
+  };
   const handleChange = e => {
     const { name, value } = e.target;
     switch (name) {
@@ -79,4 +89,8 @@ Form.propTypes = {
   onChange: PropTypes.func,
 };
 
-export { Form };
+const mapDispatchToProps = dispatch => ({
+  onSubmit: ({ name, number }) => dispatch(addContact({ name, number })),
+});
+
+export default connect(null, mapDispatchToProps)(Form);

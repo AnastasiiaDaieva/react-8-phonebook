@@ -3,6 +3,8 @@ import { Section } from 'components/Section/Section';
 import { ContactsItem } from './ContactsItem';
 import s from 'components/Contacts/Contacts.module.css';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { deleteContact } from '../../store/actions';
 
 function Contacts({ contacts, onDeleteContact }) {
   return (
@@ -32,4 +34,21 @@ Contacts.propTypes = {
   id: PropTypes.string,
   number: PropTypes.string,
 };
-export { Contacts };
+
+const getVisibleContacts = (allContacts, filter) => {
+  const normalizedFilter = filter.toLowerCase();
+
+  return allContacts.filter(({ name }) =>
+    name.toLowerCase().includes(normalizedFilter),
+  );
+};
+
+const mapStateToProps = ({ contacts: { items, filter } }) => ({
+  contacts: getVisibleContacts(items, filter),
+});
+
+const mapDispatchToProps = dispatch => ({
+  onDeleteContact: id => dispatch(deleteContact(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Contacts);
