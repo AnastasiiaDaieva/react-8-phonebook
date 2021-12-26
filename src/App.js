@@ -1,16 +1,37 @@
-import './App.css';
+import './App.scss';
 import React from 'react';
-import Form from 'components/Form/Form';
-import Filter from 'components/Filter/Filter';
-import Contacts from 'components/Contacts/Contacts';
+import { Suspense } from 'react';
+import ClipLoader from 'react-spinners/ClipLoader';
+import { Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
+import AppBar from 'components/AppBar/AppBar';
+
+const HomeView = lazy(() =>
+  import('views/HomeView' /*webpackChunkName: "home-view" */),
+);
+const LoginView = lazy(() =>
+  import('views/LoginView' /*webpackChunkName: "login-view" */),
+);
+const ContactsView = lazy(() =>
+  import('views/ContactsView' /*webpackChunkName: "contacts-view" */),
+);
+const SignupView = lazy(() =>
+  import('views/SignupView' /*webpackChunkName: "signup-view" */),
+);
 
 function App() {
   return (
-    <div className="App">
-      <Form />
-      <Filter />
-      <Contacts />
-    </div>
+    <>
+      <AppBar />
+      <Suspense fallback={<ClipLoader />}>
+        <Routes>
+          <Route path="/*" element={<HomeView />} />
+          <Route path="/mycontacts" element={<ContactsView />} />
+          <Route path="/signup" element={<SignupView />} />
+          <Route path="/login" element={<LoginView />} />
+        </Routes>
+      </Suspense>
+    </>
   );
 }
 

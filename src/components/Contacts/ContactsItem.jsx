@@ -1,5 +1,5 @@
 import React from 'react';
-import s from 'components/Contacts/ContactsItem.module.css';
+import s from 'components/Contacts/ContactsItem.module.scss';
 import PropTypes from 'prop-types';
 
 function ContactsItem({ id, name, number, deleteFunc }) {

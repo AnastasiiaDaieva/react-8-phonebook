@@ -1,5 +1,5 @@
 import React from 'react';
-import s from 'components/Section/Section.module.css';
+import s from 'components/Section/Section.module.scss';
 import PropTypes from 'prop-types';
 
 function Section({ text, className, children }) {

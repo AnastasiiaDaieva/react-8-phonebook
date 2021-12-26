@@ -1,11 +1,11 @@
 import React from 'react';
 import { Section } from 'components/Section/Section';
 import { ContactsItem } from './ContactsItem';
-import s from 'components/Contacts/Contacts.module.css';
+import s from 'components/Contacts/Contacts.module.scss';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { deleteContact } from '../../store/actions';
-import { getVisibleContacts } from 'store/selectors';
+import { deleteContact } from '../../store/contacts/contacts-operations';
+import { getVisibleContacts } from 'store/contacts/contacts-selectors';
 
 function Contacts({ contacts, onDeleteContact }) {
   return (

@@ -1,0 +1,17 @@
+@import '/src/index.scss';
+
+.UserMenu__authnav,
+.UserMenu__nav {
+  text-decoration: none;
+  transition: var(--timing-function);
+
+  @media screen and (min-width: 600px) {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+}
+
+.UserMenu__user {
+  margin-right: 15px;
+}

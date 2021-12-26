@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { changeFilter } from 'store/actions';
-import { getFilter } from '../../store/selectors';
+import { changeFilter } from 'store/contacts/contacts-actions';
+import { getFilter } from '../../store/contacts/contacts-selectors';
 
 function Filter({ value, onChange }) {
   return (

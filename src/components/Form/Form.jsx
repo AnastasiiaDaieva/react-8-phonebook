@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Section } from 'components/Section/Section';
-import s from 'components/Form/Form.module.css';
+import s from 'components/Form/Form.module.scss';
 import PropTypes from 'prop-types';
 import { connect, useSelector } from 'react-redux';
-import { addContact } from 'store/actions';
+import { addContact } from 'store/contacts/contacts-operations';
 
 function Form({ onSubmit }) {
   const contacts = useSelector(state => state.contacts.items);
