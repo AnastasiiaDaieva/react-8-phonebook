@@ -5,6 +5,14 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import AppBar from 'components/AppBar/AppBar';
+import { fetchCurrentUser } from 'store/auth/auth-operations';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import {
+  RequireAuth,
+  GeneralAccess,
+} from 'components/AppBar/UserMenu/CheckAccess';
+import { css } from '@emotion/react';
 
 const HomeView = lazy(() =>
   import('views/HomeView' /*webpackChunkName: "home-view" */),
@@ -19,16 +27,48 @@ const SignupView = lazy(() =>
   import('views/SignupView' /*webpackChunkName: "signup-view" */),
 );
 
+const override = css`
+  display: block;
+  margin: auto;
+`;
+
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
+
   return (
     <>
       <AppBar />
-      <Suspense fallback={<ClipLoader />}>
+      <Suspense fallback={<ClipLoader css={override} size={200} />}>
         <Routes>
           <Route path="/*" element={<HomeView />} />
-          <Route path="/mycontacts" element={<ContactsView />} />
-          <Route path="/signup" element={<SignupView />} />
-          <Route path="/login" element={<LoginView />} />
+          <Route
+            path="/mycontacts"
+            element={
+              <RequireAuth redirectTo="/login">
+                <ContactsView />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <GeneralAccess redirectTo="/*">
+                <SignupView />
+              </GeneralAccess>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <GeneralAccess redirectTo="/*">
+                <LoginView />
+              </GeneralAccess>
+            }
+          />
         </Routes>
       </Suspense>
     </>

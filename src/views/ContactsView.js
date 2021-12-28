@@ -5,6 +5,7 @@ import Container from 'components/Container/Container';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'store/contacts/contacts-operations';
+import s from './ContactsView.module.scss';
 
 function ContactsView() {
   const dispatch = useDispatch();
@@ -12,9 +13,11 @@ function ContactsView() {
   useEffect(() => dispatch(fetchContacts()), [dispatch]);
   return (
     <Container>
-      <Form />
-      <Filter />
-      <Contacts />
+      <div className={s.ContactsView}>
+        <Form />
+        <Filter />
+        <Contacts />
+      </div>
     </Container>
   );
 }

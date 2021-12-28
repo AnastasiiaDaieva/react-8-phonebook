@@ -1,8 +1,14 @@
+@import '/src/index.scss';
+
 .Form {
   display: flex;
   flex-direction: column;
   text-align: left;
   align-items: left;
+  padding: 25px;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: var(--add-shadow);
 }
 
 .Form__item {
