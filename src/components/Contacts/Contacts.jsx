@@ -9,11 +9,17 @@ import { getVisibleContacts } from 'store/contacts/contacts-selectors';
 import { useSelector } from 'react-redux';
 
 function Contacts({ contacts, onDeleteContact }) {
-  const state = useSelector(state => state.state);
+  const state = useSelector(state => state);
+  const total = contacts.length;
+
   console.log(state);
   return (
     <Section className={s.Contacts} text="Contacts">
-      {/* <p>Total: { `${number}`} contacts</p> */}
+      <p className={s.Contacts__total}>
+        {total > 1 || total === 0
+          ? `Total: ${contacts.length} contacts`
+          : `Total: ${contacts.length} contact`}{' '}
+      </p>
       <ul className={s.Contacts__list}>
         {contacts.length === 0 ? (
           <h3 className={s.Contacts__message}>Nothing is here</h3>

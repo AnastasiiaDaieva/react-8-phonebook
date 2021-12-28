@@ -17,12 +17,17 @@
   }
 }
 
+.SignupView__container {
+  padding: 50px 40px;
+}
+
 .SignupView__form {
   display: flex;
   flex-direction: column;
   padding: 20px;
   text-align: center;
-  width: 50vw;
+  min-width: 210px;
+  width: 30vw;
   background-color: rgba(0, 0, 0, 0.8);
 
   box-shadow: var(--light-shadow);
@@ -42,5 +47,7 @@
 }
 
 .SignupView__input {
-  margin-left: 15px;
+  @media screen and (min-width: 877px) {
+    margin-left: 15px;
+  }
 }

@@ -3,7 +3,7 @@ import AuthNav from './AuthNav/AuthNav';
 import GenNav from './GenNav/GenNav';
 import UserMenu from './UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
-import { getLoggedIn } from 'store/auth/auth-selectors';
+import { getLoggedIn, isFetchingUser } from 'store/auth/auth-selectors';
 
 function AppBar() {
   const isLoggedIn = useSelector(getLoggedIn);

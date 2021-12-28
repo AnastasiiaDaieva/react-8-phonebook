@@ -12,7 +12,7 @@ function ContactsView() {
 
   useEffect(() => dispatch(fetchContacts()), [dispatch]);
   return (
-    <Container>
+    <Container additionalClass={s.ContactsView__container}>
       <div className={s.ContactsView}>
         <Form />
         <Filter />

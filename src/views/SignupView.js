@@ -33,7 +33,7 @@ function SignupView() {
 
   return (
     <div className={s.SignupView}>
-      <Container>
+      <Container additionalClass={s.SignupView__container}>
         <form
           onSubmit={handleSubmit}
           autoComplete="off"

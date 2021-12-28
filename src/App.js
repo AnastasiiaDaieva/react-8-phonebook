@@ -13,6 +13,8 @@ import {
   GeneralAccess,
 } from 'components/AppBar/UserMenu/CheckAccess';
 import { css } from '@emotion/react';
+import { useSelector } from 'react-redux';
+import { isFetchingUser } from 'store/auth/auth-selectors';
 
 const HomeView = lazy(() =>
   import('views/HomeView' /*webpackChunkName: "home-view" */),
@@ -34,6 +36,8 @@ const override = css`
 
 function App() {
   const dispatch = useDispatch();
+  const userLoading = useSelector(isFetchingUser);
+  console.log(userLoading);
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
@@ -41,36 +45,40 @@ function App() {
 
   return (
     <>
-      <AppBar />
-      <Suspense fallback={<ClipLoader css={override} size={200} />}>
-        <Routes>
-          <Route path="/*" element={<HomeView />} />
-          <Route
-            path="/mycontacts"
-            element={
-              <RequireAuth redirectTo="/login">
-                <ContactsView />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path="/signup"
-            element={
-              <GeneralAccess redirectTo="/*">
-                <SignupView />
-              </GeneralAccess>
-            }
-          />
-          <Route
-            path="/login"
-            element={
-              <GeneralAccess redirectTo="/*">
-                <LoginView />
-              </GeneralAccess>
-            }
-          />
-        </Routes>
-      </Suspense>
+      {!userLoading && (
+        <>
+          <AppBar />
+          <Suspense fallback={<ClipLoader css={override} size={200} />}>
+            <Routes>
+              <Route path="/*" element={<HomeView />} />
+              <Route
+                path="/mycontacts"
+                element={
+                  <RequireAuth redirectTo="/login">
+                    <ContactsView />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/signup"
+                element={
+                  <GeneralAccess redirectTo="/*">
+                    <SignupView />
+                  </GeneralAccess>
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                  <GeneralAccess redirectTo="/*">
+                    <LoginView />
+                  </GeneralAccess>
+                }
+              />
+            </Routes>
+          </Suspense>
+        </>
+      )}
     </>
   );
 }

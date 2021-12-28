@@ -1,0 +1,14 @@
+@import '/src/index.scss';
+.HomeView__container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 50px 40px;
+}
+.HomeView__random {
+  background-color: blanchedalmond;
+  width: 40vw;
+  padding: 20px;
+  box-shadow: var(--basic-box-shadow);
+  border-radius: 5px;
+}

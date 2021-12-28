@@ -16,6 +16,7 @@
   @media screen and( min-width: 1024px) {
     background-image: url(../images/login-welcome_desktop.jpg);
   }
+  padding: 50px 40px;
 }
 
 .LoginView__form {
@@ -23,7 +24,8 @@
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 5px;
-  width: 50vw;
+  min-width: 210px;
+  width: 30vw;
   padding: 20px;
   box-shadow: var(--light-shadow);
   text-align: center;
