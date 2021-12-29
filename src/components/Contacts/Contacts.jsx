@@ -14,7 +14,7 @@ function Contacts({ contacts, onDeleteContact }) {
 
   console.log(state);
   return (
-    <Section className={s.Contacts} text="Contacts">
+    <Section className={s.Contacts} text="Your phonebook">
       <p className={s.Contacts__total}>
         {total > 1 || total === 0
           ? `Total: ${contacts.length} contacts`

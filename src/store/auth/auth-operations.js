@@ -61,10 +61,3 @@ export const fetchCurrentUser = createAsyncThunk(
     }
   },
 );
-
-export const editContact = createAsyncThunk('auth/edit', async () => {
-  try {
-  } catch (error) {
-    console.log(error);
-  }
-});

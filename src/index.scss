@@ -25,11 +25,17 @@
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  padding-top: 200px;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: calc(10px + 1vmin);
+  padding-top: 200px;
+
+  @media screen and(min-width: 600px) {
+    padding-top: 165px;
+  }
+  @media screen and(min-width: 1000px) {
+    padding-top: 90px;
+  }
 }
 
 code {
