@@ -47,6 +47,7 @@ export const fetchCurrentUser = createAsyncThunk(
   'auth/fetch',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
+    console.log(state);
     const currToken = state.auth.token;
     if (token === null) {
       return thunkAPI.rejectWithValue();
@@ -60,3 +61,10 @@ export const fetchCurrentUser = createAsyncThunk(
     }
   },
 );
+
+export const editContact = createAsyncThunk('auth/edit', async () => {
+  try {
+  } catch (error) {
+    console.log(error);
+  }
+});

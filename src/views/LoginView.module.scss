@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
 
+  padding: 50px 40px;
   background-image: url(../images/login-welcome_phone.jpg);
 
   @media screen and (min-width: 768px) {
@@ -16,7 +17,6 @@
   @media screen and( min-width: 1024px) {
     background-image: url(../images/login-welcome_desktop.jpg);
   }
-  padding: 50px 40px;
 }
 
 .LoginView__form {

@@ -14,7 +14,7 @@ import {
 } from 'components/AppBar/UserMenu/CheckAccess';
 import { css } from '@emotion/react';
 import { useSelector } from 'react-redux';
-import { isFetchingUser } from 'store/auth/auth-selectors';
+import { isFetchingUser, checkToken } from 'store/auth/auth-selectors';
 
 const HomeView = lazy(() =>
   import('views/HomeView' /*webpackChunkName: "home-view" */),
@@ -37,10 +37,15 @@ const override = css`
 function App() {
   const dispatch = useDispatch();
   const userLoading = useSelector(isFetchingUser);
-  console.log(userLoading);
+  const getToken = useSelector(checkToken);
+  console.log(getToken);
 
   useEffect(() => {
-    dispatch(fetchCurrentUser());
+    if (getToken === null) {
+      return;
+    } else {
+      dispatch(fetchCurrentUser());
+    }
   }, [dispatch]);
 
   return (
