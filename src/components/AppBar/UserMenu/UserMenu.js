@@ -8,7 +8,6 @@ import avatar from 'images/default-user-pic.png';
 function UserMenu({ className }) {
   const dispatch = useDispatch();
   const userEmail = useSelector(getUserEmail);
-  console.log(userEmail);
   return (
     <div className={className}>
       <span className={s.UserMenu__user}> Hello, {userEmail}</span>

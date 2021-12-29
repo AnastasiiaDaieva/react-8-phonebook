@@ -7,7 +7,6 @@ import { addContact } from 'store/contacts/contacts-operations';
 
 function Form({ onSubmit }) {
   const contacts = useSelector(state => state.contacts.items);
-  console.log(contacts);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 

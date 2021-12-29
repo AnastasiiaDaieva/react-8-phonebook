@@ -4,7 +4,7 @@ import GenNav from './GenNav/GenNav';
 import UserMenu from './UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
 import { getUserEmail } from 'store/auth/auth-selectors';
-import { getLoggedIn, isFetchingUser } from 'store/auth/auth-selectors';
+import { getLoggedIn } from 'store/auth/auth-selectors';
 import Logo from './Logo/Logo';
 
 function AppBar() {

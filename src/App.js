@@ -38,7 +38,6 @@ function App() {
   const dispatch = useDispatch();
   const userLoading = useSelector(isFetchingUser);
   const getToken = useSelector(checkToken);
-  console.log(getToken);
 
   useEffect(() => {
     if (getToken === null) {

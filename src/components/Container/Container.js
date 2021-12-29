@@ -1,5 +1,3 @@
-import s from 'components/Container/Container.module.scss';
-
 import PropTypes from 'prop-types';
 
 export default function Container({ children, additionalClass }) {

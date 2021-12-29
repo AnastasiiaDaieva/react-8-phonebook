@@ -6,13 +6,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { deleteContact } from '../../store/contacts/contacts-operations';
 import { getVisibleContacts } from 'store/contacts/contacts-selectors';
-import { useSelector } from 'react-redux';
 
 function Contacts({ contacts, onDeleteContact }) {
-  const state = useSelector(state => state);
   const total = contacts.length;
 
-  console.log(state);
   return (
     <Section className={s.Contacts} text="Your phonebook">
       <p className={s.Contacts__total}>
