@@ -5,16 +5,16 @@ import { BsFiles } from 'react-icons/bs';
 import { useState, useRef } from 'react';
 
 function ContactsItem({ id, name, number, deleteFunc }) {
-  const [copySuccess, setCopySuccess] = useState('');
   const textAreaRef = useRef(null);
 
-  const copyToClipboard = e => {
-    textAreaRef.current.select();
-    document.execCommand('copy');
+  const copyToClipboard = async () => {
+    const numberToCopy = textAreaRef.current.outerText;
 
-    // e.target.focus();
-    // setCopySuccess('Copied!');
-    console.log(copySuccess);
+    if ('clipboard' in navigator) {
+      return await navigator.clipboard.writeText(numberToCopy);
+    } else {
+      return document.execCommand('copy', true, numberToCopy);
+    }
   };
 
   return (
@@ -22,10 +22,12 @@ function ContactsItem({ id, name, number, deleteFunc }) {
       <li key={id} className={s.ContactsItem}>
         <div className={s.ContactsItem__information}>
           <span className={s.ContactsItem__name}>{name}:</span>
-          <span className={s.ContactsItem__number}>{number}</span>
-          {/* <button className={s.ContactsItem__copy} onClick={copyToClipboard}>
+          <span className={s.ContactsItem__number} ref={textAreaRef}>
+            {number}
+          </span>
+          <button className={s.ContactsItem__copy} onClick={copyToClipboard}>
             <BsFiles />
-          </button> */}
+          </button>
         </div>
         <button
           type="button"
