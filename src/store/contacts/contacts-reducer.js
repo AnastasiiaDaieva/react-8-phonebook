@@ -11,6 +11,7 @@ import {
   fetchContactsRequest,
   fetchContactsSuccess,
   fetchContactsError,
+  clearFilter,
 } from './contacts-actions';
 
 const items = createReducer([], {
@@ -22,6 +23,7 @@ const items = createReducer([], {
 
 const filter = createReducer('', {
   [changeFilter]: (_, { payload }) => payload,
+  [clearFilter]: (_, { payload }) => (payload = ''),
 });
 
 const loading = createReducer(false, {

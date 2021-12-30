@@ -15,6 +15,7 @@ import {
 import { css } from '@emotion/react';
 import { useSelector } from 'react-redux';
 import { isFetchingUser, checkToken } from 'store/auth/auth-selectors';
+// import { BsToggleOff, BsToggleOn } from 'react-icons/bs';
 
 const HomeView = lazy(() =>
   import('views/HomeView' /*webpackChunkName: "home-view" */),
