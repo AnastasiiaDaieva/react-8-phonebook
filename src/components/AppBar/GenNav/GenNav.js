@@ -11,7 +11,7 @@ export const activeStyle = ({ isActive }) => {
 function GenNav({ className }) {
   return (
     <nav className={className}>
-      <NavLink style={activeStyle} className={s.GenNav} to="/*">
+      <NavLink style={activeStyle} className={s.GenNav} to="/">
         Home
       </NavLink>
       <NavLink style={activeStyle} className={s.GenNav} to="/mycontacts">

@@ -55,7 +55,7 @@ function App() {
           <AppBar />
           <Suspense fallback={<ClipLoader css={override} size={200} />}>
             <Routes>
-              <Route path="/*" element={<HomeView />} />
+              <Route path="/" element={<HomeView />} />
               <Route
                 path="/mycontacts"
                 element={
@@ -67,7 +67,7 @@ function App() {
               <Route
                 path="/signup"
                 element={
-                  <GeneralAccess redirectTo="/*">
+                  <GeneralAccess redirectTo="/">
                     <SignupView />
                   </GeneralAccess>
                 }
@@ -75,7 +75,7 @@ function App() {
               <Route
                 path="/login"
                 element={
-                  <GeneralAccess redirectTo="/*">
+                  <GeneralAccess redirectTo="/">
                     <LoginView />
                   </GeneralAccess>
                 }

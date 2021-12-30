@@ -10,14 +10,32 @@ function Form({ onSubmit }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const findMap = contacts.find(contact => contact.name === name.toLowerCase());
+  const findName = name => {
+    console.log(contacts);
+    return contacts.find(
+      contact => contact.name.toLowerCase() === name.toLowerCase(),
+    );
+  };
+  const findNumber = number => {
+    console.log(contacts);
+    return contacts.find(contact => contact.number === number);
+  };
 
   const handleSubmit = e => {
-    if (findMap) {
-      alert(`${name} is already in contacts!`);
+    e.preventDefault();
+    const currName = e.currentTarget.elements.name.value;
+    console.log(currName);
+    const currPhone = e.currentTarget.elements.number.value;
+    console.log(currPhone);
+    findName(currName);
+    findNumber(currPhone);
+    if (findName(currName)) {
+      alert(`${currName} is already in contacts!`);
+      return;
+    } else if (findNumber(currPhone)) {
+      alert(`Number ${currPhone} is already in contacts!`);
       return;
     } else {
-      e.preventDefault();
       onSubmit({ name, number });
       reset();
     }

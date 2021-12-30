@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 function Logo() {
   return (
     <div className={s.Logo}>
-      <NavLink style={{ textDecoration: 'none', color: '#fff' }} to="/*">
+      <NavLink style={{ textDecoration: 'none', color: '#fff' }} to="/">
         <BsFillTelephoneFill className={s.Logo__icon} />
         <span>MyPhonebook</span>
       </NavLink>
