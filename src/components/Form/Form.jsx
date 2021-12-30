@@ -11,22 +11,18 @@ function Form({ onSubmit }) {
   const [number, setNumber] = useState('');
 
   const findName = name => {
-    console.log(contacts);
     return contacts.find(
       contact => contact.name.toLowerCase() === name.toLowerCase(),
     );
   };
   const findNumber = number => {
-    console.log(contacts);
     return contacts.find(contact => contact.number === number);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
     const currName = e.currentTarget.elements.name.value;
-    console.log(currName);
     const currPhone = e.currentTarget.elements.number.value;
-    console.log(currPhone);
     findName(currName);
     findNumber(currPhone);
     if (findName(currName)) {
