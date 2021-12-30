@@ -10,7 +10,7 @@ function Form({ onSubmit }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const findMap = contacts.find(contact => contact.name === name);
+  const findMap = contacts.find(contact => contact.name === name.toLowerCase());
 
   const handleSubmit = e => {
     if (findMap) {
