@@ -55,7 +55,7 @@ function App() {
           <AppBar />
           <Suspense fallback={<ClipLoader css={override} size={200} />}>
             <Routes>
-              <Route path="/" element={<HomeView />} />
+              <Route path="/*" element={<HomeView />} />
               <Route
                 path="/mycontacts"
                 element={
