@@ -75,9 +75,9 @@ function App() {
               <Route
                 path="/login"
                 element={
-                  // <GeneralAccess redirectTo="/">
-                  <LoginView />
-                  // </GeneralAccess>
+                  <GeneralAccess redirectTo="/">
+                    <LoginView />
+                  </GeneralAccess>
                 }
               />
             </Routes>
